@@ -36,7 +36,7 @@ const SnakeGame = () => {
     useEffect(() => {
         const gameInterval = setInterval(() => {
             moveSnake();
-        }, 200);
+        }, 250);
         return () => clearInterval(gameInterval);
     }, [snake]);
 
@@ -64,7 +64,7 @@ const SnakeGame = () => {
                 return;
         }
 
-        // Check for collision with food
+        
         if (newHead[0] === food[0] && newHead[1] === food[1]) {
             newSnake.unshift(newHead);
             setFood(generateFood());
@@ -73,7 +73,7 @@ const SnakeGame = () => {
             newSnake.pop();
         }
 
-        // Check for collision with walls or self
+        
         if (
             newHead[0] < 0 ||
             newHead[0] >= gridSize ||
@@ -132,10 +132,16 @@ const SnakeGame = () => {
             )}
 
 
-          <br />  <button onClick={() => setDirection('UP')} style={styles.button}>Up</button> <br />
-            <button onClick={() => setDirection('LEFT')} style={styles.button}>Left</button>
-            <button onClick={() => setDirection('RIGHT')} style={styles.buttonleft}>Right</button> <br />
-            <button onClick={() => setDirection('DOWN')} style={styles.button}>Down</button>
+            <br />
+            <span style={styles.btnGrid}>
+                <button onClick={() => setDirection('UP')} style={styles.button}>Up</button>
+                <div style={styles.middleRow}>
+                    <button onClick={() => setDirection('LEFT')} style={styles.button}>Left</button>
+                    <button onClick={() => setDirection('RIGHT')} style={styles.button}>Right</button>
+                </div>
+                <button onClick={() => setDirection('DOWN')} style={styles.button}>Down</button>
+            </span>
+
         </div>
     );
 };
@@ -157,27 +163,34 @@ const styles = {
         height: '30px',
         border: '1px solid #ccc',
     },
+    btnGrid: {
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr auto', 
+        justifyItems: 'center',  
+        gap: '10px',  
+        margin: '20px 0',
+        border: '1px solid #ccc',
+        padding: '10px',
+        borderRadius: '5px',
+        backgroundColor: '#f5f5f5',
+    },
+
+    middleRow: {
+        display: 'flex',  
+        justifyContent: 'space-between',  
+        gap: '10px',  
+        width: '100%',
+    },
+
     button: {
-        marginTop: '20px',
-        padding: '10px 20px',
-        fontSize: '16px',
-        cursor: 'pointer',
-        backgroundColor: '#007bff',
-        color: 'white',
-        border: 'none',
+        padding: '25px 25px',
         borderRadius: '5px',
-    },
-    buttonleft: {
-        marginTop: '20px',
-        marginLeft: '30px',
-        padding: '10px 20px',
-        fontSize: '16px',
+        border: '1px solid #ccc',
+        backgroundColor: '#e0e0e0',
         cursor: 'pointer',
-        backgroundColor: '#007bff',
-        color: 'white',
-        border: 'none',
-        borderRadius: '5px',
+        transition: 'background-color 0.3s',
     },
+
 };
 
 export default SnakeGame;

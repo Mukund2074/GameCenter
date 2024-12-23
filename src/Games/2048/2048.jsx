@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css'; // Add styles for the game
 
- const Game2048 = () => {
+const Game2048 = () => {
   const [board, setBoard] = useState(createInitialBoard());
   const [gameOver, setGameOver] = useState(false);
 
@@ -142,6 +142,11 @@ import './styles.css'; // Add styles for the game
     move(direction);
   };
 
+  const restartGame = () => {
+    setBoard(createInitialBoard());
+    setGameOver(false);
+  };
+
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -164,12 +169,17 @@ import './styles.css'; // Add styles for the game
         ))}
       </div>
       {gameOver && <div className="game-over">Game Over!</div>}
-      <div className="controls">
-        <button onClick={() => handleButtonClick('up')}>Up</button>
-        <button onClick={() => handleButtonClick('left')}>Left</button>
-        <button onClick={() => handleButtonClick('down')}>Down</button>
-        <button onClick={() => handleButtonClick('right')}>Right</button>
+      <div className="controls btn-grid">
+        <span />
+        <button className="btn" onClick={() => handleButtonClick('up')}>Up</button>
+        <span />
+        <button className="btn" onClick={() => handleButtonClick('left')}>Left</button>
+        <span />
+        <button className="btn" onClick={() => handleButtonClick('right')}>Right</button>
+        <span />
+        <button className="btn" onClick={() => handleButtonClick('down')}>Down</button>
       </div>
+      <button className="restart-btn" onClick={restartGame}>Restart</button>
     </div>
   );
 };

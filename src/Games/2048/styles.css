@@ -45,6 +45,17 @@ body {
   .tile-512 { background-color: #f9f3d3; }
   .tile-1024 { background-color: #f9f3d3; }
   .tile-2048 { background-color: #f9f3d3; }
+  .tile-4096 { background-color: #f9f3d3; }
+  .tile-8192 { background-color: #f9f3d3; }
+  .tile-16384 { background-color: #f9f3d3; }
+  .tile-32768 { background-color: #f9f3d3; }
+  .tile-65536 { background-color: #f9f3d3; }
+  .tile-131072 { background-color: #f9f3d3; }
+  .tile-262144 { background-color: #f9f3d3; }
+  .tile-524288 { background-color: #f9f3d3; }
+  .tile-1048576 { background-color: #f9f3d3; }
+  .tile-2097152 { background-color: #f9f3d3; }  
+  
   
   .game-over {
     position: absolute;
@@ -53,5 +64,36 @@ body {
     transform: translate(-50%, -50%);
     font-size: 36px;
     color: red;
+  }
+
+  .btn-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #43474b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+
+  .restart-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .restart-btn:hover {
+    background-color: #45a049;
   }
   

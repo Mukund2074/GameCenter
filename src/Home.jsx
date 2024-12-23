@@ -1,53 +1,35 @@
 import React from 'react';
-import './App.css';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div className="app-container">
-            <div className="header">
-                <h1>Welcome to Game Center</h1>
-            </div>
+        <main className="home">
+            <header className="header">
+                <h1 className="title">Welcome to Game Center</h1>
+            </header>
 
-            <div className="cards-container">
-                <div className="card">
-                    <Link to="/2048" className="card-link">
-                        <div className="card-content">
-                            <h3>2048</h3>
-                        </div>
-                    </Link>
-                </div>
+            <section className="game-links">
+                <Link to="/2048" className="game-link">
+                    <h3>2048</h3>
+                </Link>
 
-                <div className="card">
-                    <Link to="/snake" className="card-link">
-                        <div className="card-content">
-                            <h3>Snake Game</h3>
-                        </div>
-                    </Link>
-                </div>
+                <Link to="/snake" className="game-link">
+                    <h3>Snake Game</h3>
+                </Link>
 
-                <div className="card">
-                    <Link to="/tictactoe" className="card-link">
-                        <div className="card-content">
-                            <h3>Tic Tac Toe</h3>
-                        </div>
-                    </Link>
-                </div>
+                <Link to="/tictactoe" className="game-link">
+                    <h3>Tic Tac Toe</h3>
+                </Link>
 
-                <div className="card">
-                    <Link to="/memoryCard" className="card-link">
-                        <div className="card-content">
-                            <h3>Memory Card</h3>
-                        </div>
-                    </Link>
-                </div>
-            </div>
+                <Link to="/memoryCard" className="game-link">
+                    <h3>Memory Card</h3>
+                </Link>
+            </section>
 
-            <div className="credits">
+            <footer className="footer">
                 <p>Developed by Mukund Hadiya</p>
-            </div>
-
-        </div>
+            </footer>
+        </main>
     );
 };
 

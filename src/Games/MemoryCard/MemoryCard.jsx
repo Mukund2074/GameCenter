@@ -94,10 +94,12 @@ const styles = {
         textAlign: 'center',
         marginTop: '20px',
         padding: '20px',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#d2d2d2',
         width: '100%',
-        height: '100vh',
         boxSizing: 'border-box',
+        borderRadius: '10px',
+        border: '1px solid #ccc',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
     },
     grid: {
         display: 'grid',
@@ -175,4 +177,3 @@ const styles = {
 };
 
 export default MemoryCardGame;
-    
